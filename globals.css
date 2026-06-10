@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Brand palette - deep blue real-estate professionalism */
+    --brand-50: 240 247 255;
+    --brand-500: 14 134 232;
+    --brand-600: 2 104 198;
+    --brand-700: 3 83 161;
+
+    /* Semantic tokens */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 211 100% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 211 100% 48%;
+
+    --radius: 0.5rem;
+
+    /* Custom brand vars */
+    --rv-blue: #0e86e8;
+    --rv-blue-dark: #0268c6;
+    --rv-coral: #f85d42;
+    --rv-surface: #f8fafc;
+    --rv-nav-height: 64px;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 211 100% 58%;
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 0 63% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 211 100% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* ============================================================
+   * Navigation
+   * ============================================================ */
+  .nav-link {
+    @apply text-sm font-medium text-gray-600 hover:text-brand-600 transition-colors duration-150;
+  }
+
+  /* ============================================================
+   * Hero search
+   * ============================================================ */
+  .hero-gradient {
+    background: linear-gradient(135deg, #0353a1 0%, #0e86e8 50%, #38a3f8 100%);
+  }
+
+  .hero-pattern {
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(255,255,255,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  }
+
+  /* ============================================================
+   * Rating Stars
+   * ============================================================ */
+  .star-filled {
+    @apply text-amber-400;
+  }
+
+  .star-empty {
+    @apply text-gray-200 dark:text-gray-700;
+  }
+
+  .star-half {
+    @apply text-amber-300;
+  }
+
+  /* ============================================================
+   * Rating badges
+   * ============================================================ */
+  .rating-excellent { @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400; }
+  .rating-very-good { @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400; }
+  .rating-good      { @apply bg-lime-100 text-lime-800 dark:bg-lime-900/30 dark:text-lime-400; }
+  .rating-average   { @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400; }
+  .rating-poor      { @apply bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400; }
+  .rating-bad       { @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400; }
+
+  /* ============================================================
+   * Cards
+   * ============================================================ */
+  .property-card {
+    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm 
+           hover:shadow-md hover:border-brand-200 dark:hover:border-brand-800 
+           transition-all duration-200 overflow-hidden cursor-pointer;
+  }
+
+  .manager-card {
+    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm 
+           hover:shadow-md hover:border-brand-200 dark:hover:border-brand-800 
+           transition-all duration-200 overflow-hidden;
+  }
+
+  /* ============================================================
+   * Form elements
+   * ============================================================ */
+  .form-label {
+    @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+  }
+
+  .form-helper {
+    @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+  }
+
+  /* ============================================================
+   * Page sections
+   * ============================================================ */
+  .section-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white;
+    font-family: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 dark:text-gray-400 mt-1;
+  }
+
+  /* ============================================================
+   * Review cards
+   * ============================================================ */
+  .review-card {
+    @apply bg-white dark:bg-gray-900 rounded-lg border border-gray-100 dark:border-gray-800 
+           p-5 space-y-3;
+  }
+
+  /* ============================================================
+   * Admin
+   * ============================================================ */
+  .admin-card {
+    @apply bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-6;
+  }
+
+  .status-pending  { @apply bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400; }
+  .status-approved { @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400; }
+  .status-rejected { @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400; }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out both;
+  }
+
+  /* Rating bar fill */
+  .rating-bar-fill {
+    transition: width 0.6s ease-out;
+  }
+}
